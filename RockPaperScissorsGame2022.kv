@@ -1,12 +1,39 @@
-MainMenu:
-
 <MainMenu>:
-    orientation: "vertical"
-    Label: 
-        text: "Rock Paeper Scissors Game 2022"
-    Button:
-        text: "Play"
-    Button:
+    BoxLayout:
+        orientation: "vertical"
+        Label: 
+            text: "Rock Paeper Scissors Game 2022"
+        Button:
+            text: "Play"
+            on_press: root.manager.current = 'game'
+        Button:
+            text: "Settings"
+            on_press: root.manager.current = 'settings'
+        Button:
+            text: "Exit"
+            on_press: root.quitGame()
+
+<Game>:
+    BoxLayout:
+        orientation: "horizontal"
+        Label:
+            text: "Player Side"
+        Label:
+            text: "Opponent Side"
+    AnchorLayout:
+        anchor_x: "left"
+        anchor_y: "top"
+        Button: 
+            text: "Back"
+            on_press: root.manager.current = 'menu'
+            size_hint: .10, .10
+<Settings>:
+    Label:
         text: "Settings"
-    Button:
-        text: "Exit"
+    AnchorLayout:
+        anchor_x: "left"
+        anchor_y: "top"
+        Button: 
+            text: "Back"
+            on_press: root.manager.current = 'menu'
+            size_hint: .10, .10
