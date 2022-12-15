@@ -1,7 +1,14 @@
-#import kivy
+from kivy import App
 import random
+
 movelist = ["Rock", "Paper", "Scissors"]
 playerSelectedMove = ""
+
+class RockPaperScissors(App):
+    pass
+
+RockPaperScissors().run()
+
 
 #Makes Random AI move and calcualtes the winner
 def calculateWinner():
@@ -12,7 +19,7 @@ def calculateWinner():
         print(f"Both players selected {playerSelectedMove}. It's a tie!")
     elif playerSelectedMove == "rock":
         if selectedMove == "scissors":
-            print("Rock smashes scissors! You win!")
+           print("Rock smashes scissors! You win!")
         else:
             print("Paper covers rock! You lose.")
     elif playerSelectedMove == "paper":

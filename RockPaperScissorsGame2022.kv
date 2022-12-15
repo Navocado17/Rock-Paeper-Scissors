@@ -1,0 +1,26 @@
+MainWidget:
+
+<MainWidget>:
+    DropDown:
+        id: dropdown
+        on_parent: self.dismiss()
+        on_select: btn.text = '{}'.format(args[1])
+
+
+        Button:
+            text: 'Rock''
+            size_hint_y: None
+            height: '48dp'
+            on_release: dropdown.select('First Item')
+
+        Button:
+            text: 'Paeper'
+            size_hint_y: None
+            height: '48dp'
+            on_release: dropdown.select('Second Item')
+
+        Button:
+            text: 'Scissors'
+            size_hint_y: None
+            height: '48dp'
+            on_release: dropdown.select('Third Item')
