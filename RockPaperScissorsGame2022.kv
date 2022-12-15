@@ -1,26 +1,12 @@
-MainWidget:
+MainMenu:
 
-<MainWidget>:
-    DropDown:
-        id: dropdown
-        on_parent: self.dismiss()
-        on_select: btn.text = '{}'.format(args[1])
-
-
-        Button:
-            text: 'Rock''
-            size_hint_y: None
-            height: '48dp'
-            on_release: dropdown.select('First Item')
-
-        Button:
-            text: 'Paeper'
-            size_hint_y: None
-            height: '48dp'
-            on_release: dropdown.select('Second Item')
-
-        Button:
-            text: 'Scissors'
-            size_hint_y: None
-            height: '48dp'
-            on_release: dropdown.select('Third Item')
+<MainMenu>:
+    orientation: "vertical"
+    Label: 
+        text: "Rock Paeper Scissors Game 2022"
+    Button:
+        text: "Play"
+    Button:
+        text: "Settings"
+    Button:
+        text: "Exit"

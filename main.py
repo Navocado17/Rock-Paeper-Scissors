@@ -1,4 +1,4 @@
-from kivy import App
+from kivy.app import App
 import random
 
 movelist = ["Rock", "Paper", "Scissors"]
