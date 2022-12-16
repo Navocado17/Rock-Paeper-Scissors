@@ -1,3 +1,4 @@
+#:kivy 2.1.0
 <MainMenu>:
     BoxLayout:
         orientation: "vertical"
@@ -28,8 +29,16 @@
             on_press: root.manager.current = 'menu'
             size_hint: .10, .10
 <Settings>:
-    Label:
-        text: "Settings"
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: "Settings"
+        Slider:
+            min: 0
+            max: 100
+            value: 50
+            on_value: root.on_slider_value(self)
+            orientation: "horizontal"
     AnchorLayout:
         anchor_x: "left"
         anchor_y: "top"
