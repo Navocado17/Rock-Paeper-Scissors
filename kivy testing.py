@@ -17,6 +17,8 @@ class Game(Screen):
 class Settings(Screen):
     def on_slider_value(self,widget):
         print("Volume: " + str(widget.value))
+        if sound:
+            sound.volume = widget.value
 
 
 class RockPaperScissorsGame2022(App):
@@ -30,6 +32,7 @@ class RockPaperScissorsGame2022(App):
 
 sound = SoundLoader.load('SOUND/angrybirdstheme.mp3')
 if sound:
+    sound.loop = True
     sound.play()
     
 RockPaperScissorsGame2022().run()
