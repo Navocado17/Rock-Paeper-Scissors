@@ -3,23 +3,28 @@
     BoxLayout:
         orientation: "vertical"
         Label: 
-            text: "Rock Paeper Scissors Game 2022"
-        Button:
-            text: "Play"
-            size_hint: .5,.25
-            pos_hint: {"center_x": .5}
-            on_press: root.manager.current = 'game'
-        Button:
-            text: "Settings"
-            size_hint: .5,.25
-            pos_hint: {"center_x": .5}
-            on_press: root.manager.current = 'settings'
-            
-        Button:
-            text: "Exit"
-            size_hint: .5,.25
-            pos_hint: {"center_x": .5}
-            on_press: root.quitGame()
+            text: "Rock Paeper Scissors Game V.1.0.0 Limited edition Free Punjabi Virus 2022"
+        AnchorLayout:
+            StackLayout:
+                orientation: "tb-lr"
+                padding: ("440dp","0dp","50dp","0dp")
+                spacing: ("40dp", "40dp")
+                Button:
+                    text: "Play"
+                    size_hint: .5,.20
+                    pos_hint: {"center_x": .5}
+                    on_press: root.manager.current = 'game'
+                Button:
+                    text: "Settings"
+                    size_hint: .5,.20
+                    pos_hint: {"center_x": .5}
+                    on_press: root.manager.current = 'settings'
+                Button:
+                    text: "Exit"
+                    size_hint: .5,.20
+                    pos_hint: {"center_x": .5}
+                    on_press: root.quitGame()
+
 
 <Game>:
     BoxLayout:
@@ -111,15 +116,35 @@
     BoxLayout:
         orientation: "vertical"
         Label:
+            font_size: 45
             text: "Settings"
-        Slider:
-            min: 0
-            max: 1
-            value: 1
-            on_value: root.on_slider_value(self)
+        Label:
+            font_size: 25
+            text: "Volume:" 
+        BoxLayout:
             orientation: "horizontal"
-            size_hint: .75, 1
-            pos_hint: {"center_x": .5}
+            Slider:
+                orientation: "horizontal"
+                id: volume_slider
+                min: 0
+                max: 1
+                value: 1
+                on_value: root.on_slider_value(self)
+                size_hint: 2, 1
+                pos_hint: {"center_x": 1}
+                valign: 'middle'
+            Label:
+                font_size: 20
+                text: str(int(volume_slider.value*100))
+        BoxLayout:
+            orientation: "horizontal"
+            Label:
+                font_size: 20
+                text: "Eddie mode:(In development)"
+            Switch:
+                on_active: root.on_switch_active(self)
+                size_hint: 1, 1
+                width: "100dp"
     AnchorLayout:
         anchor_x: "left"
         anchor_y: "top"
