@@ -23,23 +23,48 @@
 <Game>:
     BoxLayout:
         orientation: "horizontal"
-        Label:
-            text: "Player Side"
-        Label:
-            text: "Opponent Side"
-    StackLayout:
-        orientation: "lr-tb" 
-        padding: ("20dp", "20dp","20dp", "20dp")
-        spacing: ("15dp", "15dp") 
-            Button:
-                text: "Rock"
-                size_hint: .25,.25
-            Button:
-                text: "Paper"
-                size_hint: .25,.25
-            Button:
-                text: "Scissors"
-                size_hint: .25,.25
+        BoxLayout:
+            orientation: "vertical"
+            Image:
+                source: root.playerSideImage
+                allow_stretch: True
+                keep_ratio: False
+                size_hint: 1, 1.7
+            StackLayout:
+                orientation: "lr-tb" 
+                padding: ("40dp", "80dp","5dp", "20dp")
+                spacing: ("15dp", "15dp") 
+                Button:
+                    text: "Rock"
+                    size_hint: .30,.25
+                    on_press: root.rock()
+                Button:
+                    text: "Paper"
+                    size_hint: .30,.25
+                    on_press: root.paper()
+                Button:
+                    text: "Scissors"
+                    size_hint: .30,.25
+                    on_press: root.scissors()
+            StackLayout:
+                orientation: "lr-tb" 
+                padding: ("5dp", "5dp","5dp", "5dp")
+                spacing: ("15dp", "15dp") 
+                size_hint: 1.1, .5
+                Button:
+                    text: "Confirm"
+                    size_hint: 0.9,0.75
+        BoxLayout:
+            orientation: "vertical"
+            Image:
+                source: "assets/rock_FLIPPED.jpg"
+                allow_stretch: True
+                keep_ratio: False
+                flipped: True
+            Image: 
+                source: "assets/opponent.jpg"
+                allow_stretch: True
+                keep_ratio: False
     AnchorLayout:
         anchor_x: "left"
         anchor_y: "top"
