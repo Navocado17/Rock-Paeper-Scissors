@@ -33,14 +33,13 @@
         orientation: "vertical"
         Label:
             text: "Settings"
-        Label:
-            text: "Volume"
         Slider:
             min: 0
             max: 1
             value: 1
             on_value: root.on_slider_value(self)
             orientation: "horizontal"
+            size_hint: .75, 1
     AnchorLayout:
         anchor_x: "left"
         anchor_y: "top"
