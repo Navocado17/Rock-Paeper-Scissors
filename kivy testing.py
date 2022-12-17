@@ -5,6 +5,10 @@ from kivy.core.audio import SoundLoader
 from kivy.properties import StringProperty
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.screenmanager import SlideTransition
+from kivy.uix.screenmanager import RiseInTransition
+from kivy.config import Config
+
+Config.set('graphics', 'window_state', 'maximized')
 
 
 class MainMenu(Screen):
@@ -23,10 +27,11 @@ class Game(Screen):
 
 class Settings(Screen):
     def on_slider_value(self,widget):
-        print("Volume: " + str(widget.value))
         if sound:
             sound.volume = widget.value
-
+    def on_switch_active(self,widget):
+        print("Switch:",str(widget.active))
+        
 
 class RockPaperScissorsGame2022(App):
     def build(self):
