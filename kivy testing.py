@@ -33,5 +33,5 @@ sound = SoundLoader.load('SOUND/angrybirdstheme.mp3')
 if sound:
     sound.loop = True
     sound.play()
-    
+
 RockPaperScissorsGame2022().run()
