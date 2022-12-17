@@ -14,6 +14,7 @@
             size_hint: .5,.25
             pos_hint: {"center_x": .5}
             on_press: root.manager.current = 'settings'
+            
         Button:
             text: "Exit"
             size_hint: .5,.25
@@ -23,29 +24,50 @@
 <Game>:
     BoxLayout:
         orientation: "horizontal"
+        canvas.after:
+            Color:
+                rgba: .5, .5, .5, 1
+            Line:
+                width: 2
+                rectangle: self.x, self.y, self.width, self.height
         BoxLayout:
             orientation: "vertical"
             Image:
+                canvas.after:
+                    Color:
+                        rgba: 0, 0, 0, 1
+                    Line:
+                        width: 2
+                        rectangle: self.x, self.y, self.width, self.height
                 source: root.playerSideImage
                 allow_stretch: True
                 keep_ratio: False
-                size_hint: 1, 1.7
+                size_hint: 1, 1.5
             StackLayout:
                 orientation: "lr-tb" 
                 padding: ("40dp", "80dp","5dp", "20dp")
                 spacing: ("15dp", "15dp") 
+                canvas.after:
+                    Color:
+                        rgba: 0, 0, 0, 1
+                    Line:
+                        width: 2
+                        rectangle: self.x, self.y, self.width, self.height
                 Button:
                     text: "Rock"
                     size_hint: .30,.25
                     on_press: root.rock()
+                    disabled: root.confirmed
                 Button:
                     text: "Paper"
                     size_hint: .30,.25
                     on_press: root.paper()
+                    disabled: root.confirmed
                 Button:
                     text: "Scissors"
                     size_hint: .30,.25
                     on_press: root.scissors()
+                    disabled: root.confirmed
             StackLayout:
                 orientation: "lr-tb" 
                 padding: ("5dp", "5dp","5dp", "5dp")
@@ -54,15 +76,28 @@
                 Button:
                     text: "Confirm"
                     size_hint: 0.9,0.75
+                    on_press: root.confirm()
         BoxLayout:
             orientation: "vertical"
             Image:
-                source: "assets/rock_FLIPPED.jpg"
+                source: root.opponentImage
+                canvas.after:
+                    Color:
+                        rgba: 0, 0, 0, 1
+                    Line:
+                        width: 2
+                        rectangle: self.x, self.y, self.width, self.height
                 allow_stretch: True
                 keep_ratio: False
                 flipped: True
             Image: 
-                source: "assets/opponent.jpg"
+                source: root.opponentCharacterImage
+                canvas.after:
+                    Color:
+                        rgba: 0, 0, 0, 1
+                    Line:
+                        width: 2
+                        rectangle: self.x, self.y, self.width, self.height
                 allow_stretch: True
                 keep_ratio: False
     AnchorLayout:
@@ -92,3 +127,12 @@
             text: "Back"
             on_press: root.manager.current = 'menu'
             size_hint: .10, .10
+
+<Result>:
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: "Result Screen"
+        Label:
+            id: result_label
+            text: "Hello World!"
