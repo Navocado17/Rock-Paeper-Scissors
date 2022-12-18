@@ -73,8 +73,8 @@ class Game(Screen):
                         message = "Rock smashes scissors! You lose."
                 self.message = message
                 self.confirmed = False
-                self.parent.transition = RiseInTransition()
-                self.parent.current = "outcome"
+                self.manager.transition = RiseInTransition()
+                self.manager.current = "outcome"
                 
                 
             Clock.schedule_once(show_result, 2)

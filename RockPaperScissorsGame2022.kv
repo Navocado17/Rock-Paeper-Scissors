@@ -96,6 +96,7 @@
                     text: "Confirm"
                     size_hint: 0.85,0.65
                     on_press: root.confirm()
+                    disabled: root.confirmed
         BoxLayout:
             orientation: "vertical"
             Image:
@@ -126,6 +127,8 @@
             text: "Back"
             on_press: root.manager.current = 'menu'
             size_hint: .10, .10
+            disabled: root.confirmed
+
 <Settings>:
     Image:
         canvas:
