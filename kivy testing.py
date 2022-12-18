@@ -29,6 +29,7 @@ class Game(Screen):
     opponentChoice = ""
     confirmed = BooleanProperty(False)
     message = ""
+    gameResult = ""
     def rock(self):
         self.playerSideImage = "assets/rock.jpg"
         self.playerChoice = "rock"
@@ -56,21 +57,28 @@ class Game(Screen):
                 message = ""
                 if self.playerChoice == self.opponentChoice:
                     message = f"Both players selected {self.playerChoice}. It's a tie!"
+                    self.gameResult = "t"
                 elif self.playerChoice == "rock":
                     if self.opponentChoice == "scissors":
                         message = "Rock smashes scissors! You win!"
+                        self.gameResult = "w"
                     else:
                         message = "Paper covers rock! You lose."
+                        self.gameResult = "l"
                 elif self.playerChoice == "paper":
                     if self.opponentChoice == "rock":
                         message = "Paper covers rock! You win!"
+                        self.gameResult = "w"
                     else:
                         message = "Scissors cuts paper! You lose."
+                        self.gameResult = "l"
                 elif self.playerChoice == "scissors":
                     if self.opponentChoice == "paper":
                         message = "Scissors cuts paper! You win!"
+                        self.gameResult = "w"
                     else:
                         message = "Rock smashes scissors! You lose."
+                        self.gameResult = "l"
                 self.message = message
                 self.confirmed = False
                 self.manager.transition = RiseInTransition()
@@ -82,9 +90,19 @@ class Game(Screen):
         
 class Result(Screen):
     result_text = StringProperty("")
+    image = StringProperty("")
+    loseImages = ["assets/reactions/lose/1.jpg", "assets/reactions/lose/2.jpg", "assets/reactions/lose/3.jpg", "assets/reactions/lose/4.jpg"]
+    winImages = ["assets/reactions/win/1.jpg", "assets/reactions/win/2.jpg", "assets/reactions/win/3.jpg", "assets/reactions/win/4.jpg"]
+    tieImages = ["assets/reactions/tie/1.jpg", "assets/reactions/tie/2.jpg", "assets/reactions/tie/3.jpg", "assets/reactions/tie/4.jpg"]
     def on_pre_enter(self, *args):
         gameWindow = self.manager.get_screen('game')
         self.result_text = gameWindow.message
+        if gameWindow.gameResult == "w":
+            self.image = self.winImages[random.randint(0, (len(self.winImages) - 1))]
+        elif gameWindow.gameResult == "l":
+            self.image = self.loseImages[random.randint(0, (len(self.loseImages) - 1))]
+        elif gameWindow.gameResult == "t":
+            self.image = self.tieImages[random.randint(0, (len(self.tieImages) - 1))]
         return super().on_pre_enter(*args)
 
     def returnToGame(self):

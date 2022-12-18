@@ -180,10 +180,16 @@
     BoxLayout:
         orientation: "vertical"
         Label:
-            text: "Result Screen"
-        Label:
-            id: result_label
-            text: root.result_text
+            text: "The Result"
+        BoxLayout:
+            orientation:"horizontal"
+            Label:
+                id: result_label
+                text: root.result_text
+            Image:
+                source: root.image
+                allow_stretch: True
+                keep_ratio: False
         Button:
             text: "Continue"
             on_press: root.returnToGame()
