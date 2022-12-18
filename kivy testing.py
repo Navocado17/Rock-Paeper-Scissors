@@ -86,6 +86,10 @@ class Result(Screen):
         gameWindow = self.manager.get_screen('game')
         self.result_text = gameWindow.message
         return super().on_pre_enter(*args)
+
+    def returnToGame(self):
+        self.manager.current = 'game'
+        self.manager.transition = SlideTransition()
 class Settings(Screen):
     def on_slider_value(self,widget):
         if sound:
