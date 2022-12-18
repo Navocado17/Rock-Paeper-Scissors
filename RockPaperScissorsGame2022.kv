@@ -27,6 +27,9 @@
 
 
 <Game>:
+    Label:
+        id:transfer
+        text: root.message
     BoxLayout:
         orientation: "horizontal"
         canvas.after:
@@ -160,4 +163,4 @@
             text: "Result Screen"
         Label:
             id: result_label
-            text: "Hello World!"
+            text: root.result_text

@@ -28,7 +28,7 @@ class Game(Screen):
     playerChoice = "rock"
     opponentChoice = ""
     confirmed = BooleanProperty(False)
-    message = StringProperty()
+    message = ""
     def rock(self):
         self.playerSideImage = "assets/rock.jpg"
         self.playerChoice = "rock"
@@ -53,6 +53,7 @@ class Game(Screen):
                 self.opponentImage = "assets/scissors_FLIPPED.jpg"  
             self.opponentCharacterImage = "assets/opponent.jpg"
             def show_result(*l):
+                message = ""
                 if self.playerChoice == self.opponentChoice:
                     message = f"Both players selected {self.playerChoice}. It's a tie!"
                 elif self.playerChoice == "rock":
@@ -70,8 +71,7 @@ class Game(Screen):
                         message = "Scissors cuts paper! You win!"
                     else:
                         message = "Rock smashes scissors! You lose."
-                self.message = "Balls"
-                Result().ids.result_label.text = self.message
+                self.message = message
                 self.confirmed = False
                 self.parent.transition = RiseInTransition()
                 self.parent.current = "outcome"
@@ -81,10 +81,11 @@ class Game(Screen):
         Clock.schedule_once(delayedWork, 3)
         
 class Result(Screen):
-    result = ""
-    def changeResult(self):
-        self.result = Game.message
-
+    result_text = StringProperty("")
+    def on_pre_enter(self, *args):
+        gameWindow = self.manager.get_screen('game')
+        self.result_text = gameWindow.message
+        return super().on_pre_enter(*args)
 class Settings(Screen):
     def on_slider_value(self,widget):
         if sound:
@@ -110,3 +111,4 @@ if sound:
     sound.play()
     
 RockPaperScissorsGame2022().run()
+
