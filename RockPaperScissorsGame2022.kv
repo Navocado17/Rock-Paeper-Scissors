@@ -2,29 +2,40 @@
 <MainMenu>:
     BoxLayout:
         orientation: "vertical"
-        Label: 
-            text: "Rock Paeper Scissors Game V.1.0.0 Limited edition Free Punjabi Virus 2022"
+        canvas.before:
+            Rectangle: 
+                pos: self.pos
+                size: self.size
+                source: 'assets/background1.png'
+        Label:
+            font_name: 'assets/maintitleblack.otf'
+            font_size: 40
+            text: "Rock Paeper Scissors Game V.1.0.0 Limited edition Free 2022"
+            outline_width: 3
+            outline_color: [0,0,0,1]
         AnchorLayout:
             StackLayout:
                 orientation: "tb-lr"
                 padding: ("440dp","0dp","50dp","0dp")
                 spacing: ("40dp", "40dp")
                 Button:
+                    font_name: 'assets/minecraft_font.ttf'
                     text: "Play"
                     size_hint: .5,.20
                     pos_hint: {"center_x": .5}
                     on_press: root.manager.current = 'game'
                 Button:
+                    font_name: 'assets/minecraft_font.ttf'
                     text: "Settings"
                     size_hint: .5,.20
                     pos_hint: {"center_x": .5}
                     on_press: root.manager.current = 'settings'
                 Button:
+                    font_name: 'assets/minecraft_font.ttf'
                     text: "Exit"
                     size_hint: .5,.20
                     pos_hint: {"center_x": .5}
                     on_press: root.quitGame()
-
 
 <Game>:
     BoxLayout:
@@ -50,7 +61,7 @@
                 size_hint: 1, 1.5
             StackLayout:
                 orientation: "lr-tb" 
-                padding: ("40dp", "80dp","5dp", "20dp")
+                padding: ("45dp", "80dp","5dp", "20dp")
                 spacing: ("15dp", "15dp") 
                 canvas.after:
                     Color:
@@ -75,12 +86,12 @@
                     disabled: root.confirmed
             StackLayout:
                 orientation: "lr-tb" 
-                padding: ("5dp", "5dp","5dp", "5dp")
+                padding: ("30dp", "5dp","5dp", "5dp")
                 spacing: ("15dp", "15dp") 
                 size_hint: 1.1, .5
                 Button:
                     text: "Confirm"
-                    size_hint: 0.9,0.75
+                    size_hint: 0.85,0.65
                     on_press: root.confirm()
         BoxLayout:
             orientation: "vertical"
@@ -113,6 +124,12 @@
             on_press: root.manager.current = 'menu'
             size_hint: .10, .10
 <Settings>:
+    Image:
+        canvas:
+            Rectangle: 
+                pos: self.pos
+                size: self.size
+                source: 'assets/settings2.png'
     BoxLayout:
         orientation: "vertical"
         Label:
@@ -131,8 +148,8 @@
                 value: 1
                 on_value: root.on_slider_value(self)
                 size_hint: 2, 1
+                padding: 50
                 pos_hint: {"center_x": 1}
-                valign: 'middle'
             Label:
                 font_size: 20
                 text: str(int(volume_slider.value*100))
