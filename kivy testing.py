@@ -129,6 +129,8 @@ class Settings(Screen):
         else:
             if self.eddieSound:
                 self.eddieSound.stop()
+            if sound:
+                sound.play()
 class RockPaperScissorsGame2022(App):
     def build(self):
         self.icon = "assets/icon.png"
