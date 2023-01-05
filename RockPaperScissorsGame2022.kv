@@ -63,6 +63,13 @@
                 orientation: "lr-tb" 
                 padding: ("45dp", "80dp","5dp", "20dp")
                 spacing: ("15dp", "15dp") 
+                canvas:
+                    Color:
+                        rgba: 1,1,1,1
+                    Rectangle: 
+                        pos: self.pos
+                        size: self.size
+                        source: 'assets/controller.png'
                 canvas.after:
                     Color:
                         rgba: 0, 0, 0, 1
@@ -88,7 +95,14 @@
                 orientation: "lr-tb" 
                 padding: ("30dp", "5dp","5dp", "5dp")
                 spacing: ("15dp", "15dp") 
-                size_hint: 1.1, .5
+                #size_hint: 1.1, .5
+                canvas:
+                    Color:
+                        rgba: 1,1,1,1
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                        source: 'assets/controller1.png'
                 Button:
                     text: "Confirm"
                     size_hint: 0.85,0.65
