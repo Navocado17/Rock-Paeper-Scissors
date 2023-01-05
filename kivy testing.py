@@ -141,4 +141,3 @@ if sound:
     sound.play()
     
 RockPaperScissorsGame2022().run()
-
