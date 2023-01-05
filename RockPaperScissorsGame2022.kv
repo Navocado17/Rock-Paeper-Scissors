@@ -38,9 +38,6 @@
                     on_press: root.quitGame()
 
 <Game>:
-    Label:
-        id:transfer
-        text: root.message
     BoxLayout:
         orientation: "horizontal"
         canvas.after:
@@ -96,7 +93,6 @@
                     text: "Confirm"
                     size_hint: 0.85,0.65
                     on_press: root.confirm()
-                    disabled: root.confirmed
         BoxLayout:
             orientation: "vertical"
             Image:
@@ -127,15 +123,13 @@
             text: "Back"
             on_press: root.manager.current = 'menu'
             size_hint: .10, .10
-            disabled: root.confirmed
-
 <Settings>:
     Image:
         canvas:
             Rectangle: 
                 pos: self.pos
                 size: self.size
-                source: 'assets/settings2.png'
+                source: 'assets/settings.png'
     BoxLayout:
         orientation: "vertical"
         Label:
@@ -178,7 +172,7 @@
 
 <Result>:
     BoxLayout:
-        orientation: "vertical"
+        orientation:"vertical"
         Label:
             text: "The Result"
         BoxLayout:
@@ -191,5 +185,6 @@
                 allow_stretch: True
                 keep_ratio: False
         Button:
+            anchor_x: "center"
             text: "Continue"
             on_press: root.returnToGame()
