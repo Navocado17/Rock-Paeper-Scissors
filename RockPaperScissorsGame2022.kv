@@ -63,12 +63,13 @@
                 orientation: "lr-tb" 
                 padding: ("45dp", "80dp","5dp", "20dp")
                 spacing: ("15dp", "15dp") 
-                canvas.after:
+                canvas:
                     Color:
-                        rgba: 0, 0, 0, 1
-                    Line:
-                        width: 2
-                        rectangle: self.x, self.y, self.width, self.height
+                        rgba: 1, 1, 1, 1
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                        source: "assets/background1.png"
                 Button:
                     text: "Rock"
                     size_hint: .30,.25

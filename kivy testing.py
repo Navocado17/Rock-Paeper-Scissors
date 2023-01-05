@@ -115,6 +115,8 @@ class Settings(Screen):
     def on_slider_value(self,widget):
         if sound:
             sound.volume = widget.value
+        if self.eddieSound:
+            self.eddieSound.volume = widget.value
     def on_switch_active(self,widget):
         print("Switch:",str(widget.active))
         if(widget.active):
