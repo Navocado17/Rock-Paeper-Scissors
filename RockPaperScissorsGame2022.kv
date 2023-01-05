@@ -58,56 +58,49 @@
                 source: root.playerSideImage
                 allow_stretch: True
                 keep_ratio: False
-                size_hint: 1, 1.5
-            StackLayout:
-                orientation: "lr-tb" 
-                padding: ("45dp", "80dp","5dp", "20dp")
-                spacing: ("15dp", "15dp") 
+            BoxLayout:
+                orientation: "vertical"
                 canvas:
                     Color:
                         rgba: 1,1,1,1
                     Rectangle: 
                         pos: self.pos
                         size: self.size
-                        source: 'assets/controller.png'
+                        source: 'assets/background1.png'
                 canvas.after:
                     Color:
-                        rgba: 1, 1, 1, 1
-                    Rectangle:
-                        pos: self.pos
-                        size: self.size
-                        source: "assets/background1.png"
-                Button:
-                    text: "Rock"
-                    size_hint: .30,.25
-                    on_press: root.rock()
-                    disabled: root.confirmed
-                Button:
-                    text: "Paper"
-                    size_hint: .30,.25
-                    on_press: root.paper()
-                    disabled: root.confirmed
-                Button:
-                    text: "Scissors"
-                    size_hint: .30,.25
-                    on_press: root.scissors()
-                    disabled: root.confirmed
-            StackLayout:
-                orientation: "lr-tb" 
-                padding: ("30dp", "5dp","5dp", "5dp")
-                spacing: ("15dp", "15dp") 
-                #size_hint: 1.1, .5
-                canvas:
-                    Color:
-                        rgba: 1,1,1,1
-                    Rectangle:
-                        pos: self.pos
-                        size: self.size
-                        source: 'assets/controller1.png'
-                Button:
-                    text: "Confirm"
-                    size_hint: 0.85,0.65
-                    on_press: root.confirm()
+                        rgba: 0, 0, 0, 1
+                    Line:
+                        width: 2
+                        rectangle: self.x, self.y, self.width, self.height
+                StackLayout:
+                    orientation: "lr-tb" 
+                    padding: ("45dp", "80dp","5dp", "20dp")
+                    spacing: ("15dp", "15dp") 
+                    Button:
+                        text: "Rock"
+                        size_hint: .30,.25
+                        on_press: root.rock()
+                        disabled: root.confirmed
+                    Button:
+                        text: "Paper"
+                        size_hint: .30,.25
+                        on_press: root.paper()
+                        disabled: root.confirmed
+                    Button:
+                        text: "Scissors"
+                        size_hint: .30,.25
+                        on_press: root.scissors()
+                        disabled: root.confirmed
+                StackLayout:
+                    orientation: "lr-tb" 
+                    padding: ("30dp", "5dp","5dp", "5dp")
+                    spacing: ("15dp", "15dp") 
+                    size_hint: 1.1, .5
+                    Button:
+                        text: "Confirm"
+                        size_hint: 0.85,0.65
+                        on_press: root.confirm()
         BoxLayout:
             orientation: "vertical"
             Image:
