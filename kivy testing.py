@@ -13,7 +13,8 @@ from kivy.clock import Clock
 from kivy.config import Config
 
 Config.set('graphics', 'window_state', 'maximized')
-
+global sound
+sound = SoundLoader.load('SOUND/angrybirdstheme.mp3')
 
 class MainMenu(Screen):
     def quitGame(self):
@@ -109,13 +110,23 @@ class Result(Screen):
         self.manager.current = 'game'
         self.manager.transition = SlideTransition()
 class Settings(Screen):
+    eddieMode = False
+    eddieSound = SoundLoader.load("SOUND/badpiggiestheme.mp3")
     def on_slider_value(self,widget):
         if sound:
             sound.volume = widget.value
     def on_switch_active(self,widget):
         print("Switch:",str(widget.active))
-        
-
+        if(widget.active):
+            self.eddieMode = True
+            if sound:
+                sound.stop()
+    
+            if self.eddieSound:
+                self.eddieSound.play()
+        else:
+            if self.eddieSound:
+                self.eddieSound.stop()
 class RockPaperScissorsGame2022(App):
     def build(self):
         self.icon = "assets/icon.png"
@@ -125,9 +136,6 @@ class RockPaperScissorsGame2022(App):
         sm.add_widget(Settings(name='settings'))
         sm.add_widget(Result(name='outcome'))
         return sm
-
-
-sound = SoundLoader.load('SOUND/angrybirdstheme.mp3')
 if sound:
     sound.loop = True
     sound.play()
