@@ -125,6 +125,7 @@ class Settings(Screen):
                 sound.stop()
     
             if self.eddieSound:
+                self.eddieSound.loop=True
                 self.eddieSound.play()
         else:
             if self.eddieSound:

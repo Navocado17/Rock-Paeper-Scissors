@@ -1,4 +1,5 @@
 #:kivy 2.1.0
+#:import hex kivy.utils.get_color_from_hex
 <MainMenu>:
     BoxLayout:
         orientation: "vertical"
@@ -16,24 +17,24 @@
         AnchorLayout:
             StackLayout:
                 orientation: "tb-lr"
-                padding: ("440dp","0dp","50dp","0dp")
-                spacing: ("40dp", "40dp")
+                padding: ("557dp","-50dp","50dp","50dp")
+                spacing: ("55dp", "55dp")
                 Button:
                     font_name: 'assets/minecraft_font.ttf'
                     text: "Play"
-                    size_hint: .5,.20
+                    size_hint: .6,.25
                     pos_hint: {"center_x": .5}
                     on_press: root.manager.current = 'game'
                 Button:
                     font_name: 'assets/minecraft_font.ttf'
                     text: "Settings"
-                    size_hint: .5,.20
+                    size_hint: .6,.25
                     pos_hint: {"center_x": .5}
                     on_press: root.manager.current = 'settings'
                 Button:
                     font_name: 'assets/minecraft_font.ttf'
                     text: "Exit"
-                    size_hint: .5,.20
+                    size_hint: .6,.25
                     pos_hint: {"center_x": .5}
                     on_press: root.quitGame()
 
@@ -66,7 +67,7 @@
                     Rectangle: 
                         pos: self.pos
                         size: self.size
-                        source: 'assets/background1.png'
+                        source: 'assets/controller1.png'
                 canvas.after:
                     Color:
                         rgba: 0, 0, 0, 1
@@ -75,32 +76,43 @@
                         rectangle: self.x, self.y, self.width, self.height
                 StackLayout:
                     orientation: "lr-tb" 
-                    padding: ("45dp", "80dp","5dp", "20dp")
-                    spacing: ("15dp", "15dp") 
+                    padding: ("70dp", "100dp","5dp", "20dp")
+                    spacing: ("20dp", "20dp") 
                     Button:
-                        text: "Rock"
                         size_hint: .30,.25
                         on_press: root.rock()
                         disabled: root.confirmed
+                        canvas:
+                            Rectangle:
+                                source: "assets/THUNDERBIRDRED.png"
+                                center_x: self.parent.center_x
+                                center_y: self.parent.center_y
+                        canvas.after:
+                            Label:
+                                text: "Rock"
+                        #background_color: 0.72,0.11,0.13,1
                     Button:
                         text: "Paper"
                         size_hint: .30,.25
                         on_press: root.paper()
                         disabled: root.confirmed
+                        #background_color: 0.72,0.11,0.13,1
                     Button:
                         text: "Scissors"
                         size_hint: .30,.25
                         on_press: root.scissors()
                         disabled: root.confirmed
+                        #background_color: 0.72,0.11,0.13,1
                 StackLayout:
                     orientation: "lr-tb" 
-                    padding: ("30dp", "5dp","5dp", "5dp")
+                    padding: ("123dp", "5dp","5dp", "1dp")
                     spacing: ("15dp", "15dp") 
                     size_hint: 1.1, .5
                     Button:
                         text: "Confirm"
-                        size_hint: 0.85,0.65
+                        size_hint: 0.75,0.55
                         on_press: root.confirm()
+                        #background_color: 1,0.11,0.13,1
         BoxLayout:
             orientation: "vertical"
             Image:
