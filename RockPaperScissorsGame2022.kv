@@ -79,30 +79,26 @@
                     padding: ("70dp", "100dp","5dp", "20dp")
                     spacing: ("20dp", "20dp") 
                     Button:
+                        text: "Rock"
                         size_hint: .30,.25
                         on_press: root.rock()
+                        background_normal: ""
+                        background_color: 0.72,0.11,0.13,1
                         disabled: root.confirmed
-                        canvas:
-                            Rectangle:
-                                source: "assets/THUNDERBIRDRED.png"
-                                center_x: self.parent.center_x
-                                center_y: self.parent.center_y
-                        canvas.after:
-                            Label:
-                                text: "Rock"
-                        #background_color: 0.72,0.11,0.13,1
                     Button:
                         text: "Paper"
                         size_hint: .30,.25
                         on_press: root.paper()
                         disabled: root.confirmed
-                        #background_color: 0.72,0.11,0.13,1
+                        background_normal: ""
+                        background_color: 0.72,0.11,0.13,1
                     Button:
                         text: "Scissors"
                         size_hint: .30,.25
                         on_press: root.scissors()
                         disabled: root.confirmed
-                        #background_color: 0.72,0.11,0.13,1
+                        background_normal: ""
+                        background_color: 0.72,0.11,0.13,1
                 StackLayout:
                     orientation: "lr-tb" 
                     padding: ("123dp", "5dp","5dp", "1dp")
