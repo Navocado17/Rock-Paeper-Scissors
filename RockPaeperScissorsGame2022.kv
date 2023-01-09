@@ -1,8 +1,9 @@
 #:kivy 2.1.0
 #:import hex kivy.utils.get_color_from_hex
 <LoadingScreen>:
-    Label: 
-        text: "Loading...."
+    Video:
+        source: "assets/intro.mp4"
+        state: "play"
 <MainMenu>:
     BoxLayout:
         orientation: "vertical"
