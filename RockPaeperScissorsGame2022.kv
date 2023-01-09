@@ -131,6 +131,7 @@
                         outline_color: [0,0,0,1]
                         size_hint: 0.75,0.55
                         on_press: root.confirm()
+                        disabled: root.confirmed
                         background_normal: ""
                         background_color: 0.764, 0.764, 0.764, 1
         BoxLayout:
@@ -164,6 +165,16 @@
             font_name: "assets/fonts/fortnite.otf"
             font_size: 25
             on_press: root.manager.current = 'menu'
+            size_hint: .10, .10
+            disabled: root.confirmed
+    AnchorLayout:
+        anchor_x: "right"
+        anchor_y: "top"
+        Label: 
+            text: root.score
+            color: 0, 0, 0, 1
+            font_name: "assets/fonts/fortnite.otf"
+            font_size: 30
             size_hint: .10, .10
 <Settings>:
     Image:

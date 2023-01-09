@@ -18,7 +18,6 @@ global sound
 sound = SoundLoader.load('SOUND/angrybirdstheme.mp3')
 
 
-
 class Game(Screen):
     playerSideImage = StringProperty("assets/rock.jpg")
     opponentImage = StringProperty("assets/loading.jpg")
@@ -32,6 +31,8 @@ class Game(Screen):
     eddieMode = False
     message = ""
     gameResult = ""
+    points=0
+    score = StringProperty("Score: "+str(points))
     def on_pre_enter(self, *args):
         settings = self.manager.get_screen('settings')
         self.eddieMode = settings.eddieMode
@@ -39,6 +40,9 @@ class Game(Screen):
         if self.eddieMode:
             self.opponentCharacterImage = "assets/reactions/eddie/6.jpg"
             self.opponentThinking = "assets/reactions/eddie/3.jpg"
+        else:
+            self.opponentCharacterImage = "assets/opponent.jpg"
+            self.opponentThinking = "assets/thinking.jpg"
         return super().on_pre_enter(*args)
         
         
@@ -111,6 +115,11 @@ class Game(Screen):
                     self.opponentCharacterImage = "assets/reactions/eddie/6.jpg"
                 else:
                     self.opponentCharacterImage = "assets/opponent.jpg"
+                if self.gameResult==("w"):
+                    self.points+=1
+                if self.gameResult==("l") or self.gameResult==("e"):
+                    self.points-=1
+                self.score = ("Score: "+str(self.points))
                 
             Clock.schedule_once(show_result, 2)
         Clock.schedule_once(delayedWork, 2)
