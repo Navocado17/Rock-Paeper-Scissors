@@ -131,17 +131,22 @@ class Result(Screen):
     winImages = ["assets/reactions/win/1.jpg", "assets/reactions/win/2.jpg", "assets/reactions/win/3.jpg", "assets/reactions/win/4.jpg"]
     tieImages = ["assets/reactions/tie/1.jpg", "assets/reactions/tie/2.jpg", "assets/reactions/tie/3.jpg", "assets/reactions/tie/4.jpg"]
     eddieImages = ["assets/reactions/eddie/1.png", "assets/reactions/eddie/2.png", "assets/reactions/eddie/4.jpg", "assets/reactions/eddie/5.jpg", "assets/reactions/eddie/7.jpg", "assets/reactions/eddie/8.jpg"]
+    resultbackground = StringProperty("")
     def on_pre_enter(self, *args):
         gameWindow = self.manager.get_screen('game')
         self.result_text = gameWindow.message
         if gameWindow.gameResult == "w":
             self.image = self.winImages[random.randint(0, (len(self.winImages) - 1))]
+            self.resultbackground = "assets/resultbackgroundwin1.png"
         elif gameWindow.gameResult == "l":
             self.image = self.loseImages[random.randint(0, (len(self.loseImages) - 1))]
+            self.resultbackground = "assets/resultbackgroundlos.png"
         elif gameWindow.gameResult == "t":
             self.image = self.tieImages[random.randint(0, (len(self.tieImages) - 1))]
+            self.resultbackground = "assets/resultbackgroundtie.png"
         elif gameWindow.gameResult == "e":
             self.image = self.eddieImages[random.randint(0, (len(self.eddieImages) - 1))]
+            self.resultbackground = "assets/resultbackgroundedd.png"
         return super().on_pre_enter(*args)
 
     def returnToGame(self):

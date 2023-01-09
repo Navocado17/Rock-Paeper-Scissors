@@ -166,7 +166,7 @@
             font_size: 25
             on_press: root.manager.current = 'menu'
             size_hint: .10, .10
-            disabled: root.confirmed
+            disabled: root.confirm
     AnchorLayout:
         anchor_x: "right"
         anchor_y: "top"
@@ -230,12 +230,21 @@
             size_hint: .10, .10
 
 <Result>:
+    Image:    
+        canvas:
+            Rectangle:
+                pos: self.pos
+                size: self.size
+                source: 'Rock-Paeper-Scissors - 1366 x 768 version/assets/resultscreentie.png'
     BoxLayout:
         orientation:"vertical"
         Label:
             text: "The Result"
             font_name: 'assets/fonts/fortnite.otf'
             font_size: 30
+            outline_width: 1
+            outline_color: [0,0,0,1]
+            
         BoxLayout:
             orientation:"horizontal"
             Label:
@@ -243,13 +252,22 @@
                 text: root.result_text
                 font_name: 'assets/fonts/fortnite.otf'
                 font_size: 30
+                outline_width: 1
+                outline_color: [0,0,0,1]
             Image:
                 source: root.image
                 allow_stretch: True
                 keep_ratio: False
-        Button:
-            anchor_x: "center"
-            text: "Continue"
-            font_name: 'assets/fonts/fortnite.otf'
-            font_size: 30
-            on_press: root.returnToGame()
+
+        StackLayout:
+            orientation: "lr-bt"
+            padding: ("600dp","30dp","-100dp","30dp")
+            spacing: ("5dp", "5dp")
+            Button:
+                text: "Continue"
+                font_name: 'assets/fonts/fortnite.otf'
+                font_size: 30
+                size_hint: 0.5,0.5
+                on_press: root.returnToGame()
+                outline_width: 1
+                outline_color: [0,0,0,1]
