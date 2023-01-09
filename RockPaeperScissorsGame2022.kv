@@ -9,10 +9,10 @@
                 size: self.size
                 source: 'assets/background1.png'
         Label:
-            font_name: 'assets/maintitleblack.otf'
-            font_size: 40
-            text: "Rock Paeper Scissors Game V.1.0.0 Limited edition Free 2022"
-            outline_width: 3
+            font_name: 'assets/fonts/angrybirds-regular.ttf'
+            font_size: 45
+            text: "ROCK PAEPER SCISSORS GAME 2022 V.1.0.0 LIMITED EDITION FREE 2022"
+            outline_width: 2
             outline_color: [0,0,0,1]
         AnchorLayout:
             StackLayout:
@@ -20,19 +20,22 @@
                 padding: ("557dp","-50dp","50dp","50dp")
                 spacing: ("55dp", "55dp")
                 Button:
-                    font_name: 'assets/minecraft_font.ttf'
+                    font_name: 'assets/fonts/minecraft_font.ttf'
+                    font_size: 25
                     text: "Play"
                     size_hint: .6,.25
                     pos_hint: {"center_x": .5}
                     on_press: root.manager.current = 'game'
                 Button:
-                    font_name: 'assets/minecraft_font.ttf'
+                    font_name: 'assets/fonts/minecraft_font.ttf'
+                    font_size: 25
                     text: "Settings"
                     size_hint: .6,.25
                     pos_hint: {"center_x": .5}
                     on_press: root.manager.current = 'settings'
                 Button:
-                    font_name: 'assets/minecraft_font.ttf'
+                    font_name: 'assets/fonts/minecraft_font.ttf'
+                    font_size: 25
                     text: "Exit"
                     size_hint: .6,.25
                     pos_hint: {"center_x": .5}
@@ -85,11 +88,19 @@
                         background_normal: ""
                         background_color: 0.72,0.11,0.13,1
                         disabled: root.confirmed
+                        font_name: 'assets/fonts/rexlia rg.otf'
+                        font_size: 20
+                        outline_width: 1
+                        outline_color: [0,0,0,1]
                     Button:
                         text: "Paper"
                         size_hint: .30,.25
                         on_press: root.paper()
                         disabled: root.confirmed
+                        font_name: 'assets/fonts/rexlia rg.otf'
+                        font_size: 20
+                        outline_width: 1
+                        outline_color: [0,0,0,1]
                         background_normal: ""
                         background_color: 0.72,0.11,0.13,1
                     Button:
@@ -97,6 +108,10 @@
                         size_hint: .30,.25
                         on_press: root.scissors()
                         disabled: root.confirmed
+                        font_name: 'assets/fonts/rexlia rg.otf'
+                        font_size: 20
+                        outline_width: 1
+                        outline_color: [0,0,0,1]
                         background_normal: ""
                         background_color: 0.72,0.11,0.13,1
                 StackLayout:
@@ -106,9 +121,14 @@
                     size_hint: 1.1, .5
                     Button:
                         text: "Confirm"
+                        font_name: 'assets/fonts/rexlia rg.otf'
+                        font_size: 20
+                        outline_width: 1
+                        outline_color: [0,0,0,1]
                         size_hint: 0.75,0.55
                         on_press: root.confirm()
-                        #background_color: 1,0.11,0.13,1
+                        background_normal: ""
+                        background_color: 0.764, 0.764, 0.764, 1
         BoxLayout:
             orientation: "vertical"
             Image:
@@ -137,6 +157,8 @@
         anchor_y: "top"
         Button: 
             text: "Back"
+            font_name: "assets/fonts/fortnite.otf"
+            font_size: 25
             on_press: root.manager.current = 'menu'
             size_hint: .10, .10
 <Settings>:
@@ -149,11 +171,13 @@
     BoxLayout:
         orientation: "vertical"
         Label:
-            font_size: 45
-            text: "Settings"
+            font_size: 120
+            font_name: "assets/fonts/Doom2016Text-GOlBq.ttf" 
+            text: "settings"
         Label:
-            font_size: 25
+            font_size: 45
             text: "Volume:" 
+            font_name: 'assets/fonts/fortnite.otf'
         BoxLayout:
             orientation: "horizontal"
             Slider:
@@ -173,7 +197,9 @@
             orientation: "horizontal"
             Label:
                 font_size: 20
-                text: "Eddie mode:(In development)"
+                text: "Eddie mode:(Turn on at own risk)"
+                font_name: 'assets/fonts/fortnite.otf'
+                font_size: 35
             Switch:
                 on_active: root.on_switch_active(self)
                 size_hint: 1, 1
@@ -183,6 +209,8 @@
         anchor_y: "top"
         Button: 
             text: "Back"
+            font_name: 'assets/fonts/fortnite.otf'
+            font_size: 25
             on_press: root.manager.current = 'menu'
             size_hint: .10, .10
 
@@ -191,11 +219,15 @@
         orientation:"vertical"
         Label:
             text: "The Result"
+            font_name: 'assets/fonts/fortnite.otf'
+            font_size: 30
         BoxLayout:
             orientation:"horizontal"
             Label:
                 id: result_label
                 text: root.result_text
+                font_name: 'assets/fonts/fortnite.otf'
+                font_size: 30
             Image:
                 source: root.image
                 allow_stretch: True
@@ -203,4 +235,6 @@
         Button:
             anchor_x: "center"
             text: "Continue"
+            font_name: 'assets/fonts/fortnite.otf'
+            font_size: 30
             on_press: root.returnToGame()
