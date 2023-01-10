@@ -137,16 +137,16 @@ class Result(Screen):
         self.result_text = gameWindow.message
         if gameWindow.gameResult == "w":
             self.image = self.winImages[random.randint(0, (len(self.winImages) - 1))]
-            self.resultbackground = "assets/resultbackgroundwin1.png"
+            self.resultbackground = "assets/resultscreenwin1.png"
         elif gameWindow.gameResult == "l":
             self.image = self.loseImages[random.randint(0, (len(self.loseImages) - 1))]
-            self.resultbackground = "assets/resultbackgroundlos.png"
+            self.resultbackground = "assets/resultscreenlos.png"
         elif gameWindow.gameResult == "t":
             self.image = self.tieImages[random.randint(0, (len(self.tieImages) - 1))]
-            self.resultbackground = "assets/resultbackgroundtie.png"
+            self.resultbackground = "assets/resultscreentie.png"
         elif gameWindow.gameResult == "e":
             self.image = self.eddieImages[random.randint(0, (len(self.eddieImages) - 1))]
-            self.resultbackground = "assets/resultbackgroundedd.png"
+            self.resultbackground = "assets/resultscreenedd.png"
         return super().on_pre_enter(*args)
 
     def returnToGame(self):
@@ -154,7 +154,7 @@ class Result(Screen):
         self.manager.transition = SlideTransition()
 class Settings(Screen):
     eddieMode = False
-    eddieSound = SoundLoader.load("SOUND/badpiggiestheme.mp3")
+    eddieSound = SoundLoader.load("SOUND/badpiggiestheme2.mp3")
     background = StringProperty("assets/settings.png")
     def on_slider_value(self,widget):
         if sound:
@@ -168,7 +168,7 @@ class Settings(Screen):
             def jumpscare(*l):
                 self.background = 'assets/reactions/eddie/2.png'
                 
-            Clock.schedule_once(jumpscare, 1)
+            Clock.schedule_once(jumpscare, 0.5)
             print(self.eddieMode)
             if sound:
                 sound.stop()

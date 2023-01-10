@@ -166,7 +166,7 @@
             font_size: 25
             on_press: root.manager.current = 'menu'
             size_hint: .10, .10
-            disabled: root.confirm
+            disabled: root.confirmed
     AnchorLayout:
         anchor_x: "right"
         anchor_y: "top"
@@ -235,7 +235,7 @@
             Rectangle:
                 pos: self.pos
                 size: self.size
-                source: 'Rock-Paeper-Scissors - 1366 x 768 version/assets/resultscreentie.png'
+                source: root.resultbackground
     BoxLayout:
         orientation:"vertical"
         Label:
